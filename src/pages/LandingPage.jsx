@@ -17,6 +17,10 @@ const LandingPage = () => {
       </p>
 
       <Form />
+
+      <p className="mt-5">
+        Extremity excellent certainty discourse sincerity no he so resembled.
+      </p>
     </PageLayout>
   );
 };
