@@ -1,0 +1,33 @@
+Goal: 
+
+👉 You should be able to log in and out of the application. 
+👉 When reloading the page, the isLoggedIn-state should remain the same as it did before reloading.
+👉 You should be able to manually change the name while logged into the app.
+👉 This should be done via a form and when submitting, the name should be changed instantly.
+👉 Create a custom hook that handles changes and state of an input. 
+
+
+
+1. To solve issue with state remaining the same, we use localStorage. 
+Add two functions to userContext, one for logging in and one for logging out. Do not forget to provide them to the app!
+2. All logic for logging in/out can be at the same place, the navigation bar. Use the new context functions and conditionally render name/login/logout
+3. To be able to change the name via input, we need to create a form
+4. Create a custom hook to handle changes and state of an input. Remember how a hook should be named
+5. Use the hook to track changes, and on submit, update username in context
+
+
+
+
+
+
+
+
+
+
+
+
+Show callBack example <Form callBack={(name, email) => handleUsernameUpdate(name, email)} /> 
+
+Netlify
+public > _redirects > /* /index.html 200
+
