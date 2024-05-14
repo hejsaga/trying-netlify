@@ -1,32 +1,32 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
+import { signOutUser } from "../firebase/authFunctions";
 
 const Header = () => {
-  const { userName, isLoggedIn, login, logout } = useContext(UserContext);
+  const { currentUser, userLoggedIn } = useContext(AuthContext);
 
   return (
     <div className="grid grid-cols-2 mt-6 mx-10 items-center">
       <h1 className="font-bold">Company name</h1>
 
       <nav className="flex justify-end">
-        <Link to="/" className="mr-4">
-          Home
-        </Link>
-        <Link className="mr-4" to="/about">
-          About
-        </Link>
-        <Link to="/products">Products</Link>
-
-        {isLoggedIn ? (
+        {userLoggedIn ? (
           <>
-            <p className="mx-5 font-bold">{userName}</p>
-            <button onClick={logout}>Log out</button>
+            <Link to="/home" className="mr-4">
+              Home
+            </Link>
+            <Link className="mr-4" to="/about">
+              About
+            </Link>
+            <Link to="/products">Products</Link>
+            <p className="mx-5 font-bold">{currentUser.email}</p>
+            <button onClick={signOutUser}>Log out</button>
           </>
         ) : (
-          <button className="ml-5" onClick={login}>
+          <Link to="/login" className="ml-5">
             Log in
-          </button>
+          </Link>
         )}
       </nav>
     </div>

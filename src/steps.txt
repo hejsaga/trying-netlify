@@ -1,0 +1,19 @@
+1. Registrera konto på Firebase 
+2. Lägg till ett projekt, lägg till Authentification och sign-in providers 
+3. Gå till project settings, lägg till en webb-app (</> symbol)
+4. Kopiera konfig
+5. Installera Firebase med npm install firebase
+6. Skapa en mapp under /src som heter firebase, i den skapa en konfigfil och klistra in konfig + const auth = getAuth(app) + export { app, auth };
+8. Skapa authFunctions i firebase-mappen och lägg till createUser, signInUser, signOutUser
+9. Skapa AuthContext
+State: currentUser, userLoggedIn, loading
+Sidoeffekt: const unsubscribe = onAuthStateChanged(auth, initializeUser); return unsubscribe; 
+onAuthStateChanged lyssnar på autentiseringsstatusändringar
+Huvudfunktion: initializeUser, om user, uppdatera state
+ {!loading && children}
+10. Använd definierade funktioner i authFunctons i LoginComponent och RegisterComponent
+11. Wrappa appen i provider
+12. Lägg till routes i App.jsx, /login /register
+13. Testa registrera och logga in
+14. I Header, använd currentUser och userLoggedIn för conditional rendering
+15. I App, använd PrivateRoutes
